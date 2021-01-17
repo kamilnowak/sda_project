@@ -1,0 +1,16 @@
+<div class="column">
+  <div class="card rounded-edges">
+    <div class="card-content">
+      <p class="title is-4">Chat #{{chat.id}} </p>
+      <div class="content">
+        {% for user in chat.users.all %}
+            {% if user.id is not request.user.id %}
+                <p>
+                    {{user.first_name}} {{ user.last_name }}
+                </p>
+            {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
