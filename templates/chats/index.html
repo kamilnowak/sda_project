@@ -1,3 +1,51 @@
-<button>
-    <a href="{% url "logout" %}">Log Out</a>
-</button>
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="//www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css" />
+  <link rel="stylesheet" href="{% static 'css/sda.css' %}" />
+
+  <style>
+    .rounded-edges {
+      border-radius: 0.25rem;
+    }
+  </style>
+  <title>All Chat Rooms</title>
+</head>
+
+<body>
+  <section class="hero is-info">
+    <div class="hero-body has-text-centered">
+      <div class="container">
+        <h2 class="subtitle is-5">
+          Here are your chats!
+        </h2>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        {% for chat in chats %}
+            {% include "chats/chats_list_row.html" with chat=chat %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+    {% if not request.user.is_authenticated %}
+        <button>
+            <a href="{% url "login" %}">Log in</a>
+        </button>
+    {% else %}
+        <button>
+            <a href="{% url "chats-create" %}">Create chat</a>
+        </button>
+        <button>
+            <a href="{% url "logout" %}">Log Out</a>
+        </button>
+    {% endif %}
+    <footer>
+        <img src="{% static 'images/python.png' %}"/>
+    </footer>
+</body>

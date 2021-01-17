@@ -1,3 +1,6 @@
+from django import forms
 from django.test import TestCase
 
 # Create your tests here.
+
+forms.PasswordInput

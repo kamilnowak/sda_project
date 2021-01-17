@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from chats import models
+
+
+admin.site.register(models.Chat)
