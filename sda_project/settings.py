@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-    'chats'
+    'chats',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,11 @@ AUTH_USER_MODEL = 'users.User'
 LOGOUT_REDIRECT_URL = 'chats'
 LOGIN_REDIRECT_URL = 'chats'
 
+
+# DRF
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}

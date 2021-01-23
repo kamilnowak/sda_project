@@ -3,8 +3,10 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
-from chats import models, forms
+from chats import models, forms, serializers
 
 
 # class HomeView(View):
@@ -34,3 +36,10 @@ class ChatCreateView(generic.CreateView):
         return data
 
 
+class ChatViewSet(viewsets.ModelViewSet):
+    queryset = models.Chat.objects.all()
+    serializer_class = serializers.ChatSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return self.queryset.filter(users__in=[self.request.user])
