@@ -25,7 +25,7 @@ SECRET_KEY = '0#9gg1t*!3d@^-m025vg#q#^z$e&5*pf=#j511kr1nv79_hu$6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sda-chat-app.herokuapp.com']
 
 
 # Application definition
