@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'sda_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, "db.sqlite3")
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8su1jmq7gbibu',
+        'USER': 'fgknrvnzlxhank',
+        'PASSWORD': 'fd63ed0dbfcce4efdffc79bed05e7c06b7a4e10d590b4e6714522761cbc3b87b',
+        'HOST': 'ec2-54-205-248-255.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
